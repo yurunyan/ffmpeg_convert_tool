@@ -73,10 +73,13 @@ class App(wx.Frame):
         layout.Add(self.text2, flag=wx.EXPAND | wx.ALL, border=10)
         
         p.SetSizer(layout)
-        icon=wx.EmptyIcon()
-        icon_source=wx.Image('icon.jpg',wx.BITMAP_TYPE_JPEG)
-        icon.CopyFromBitmap(icon_source.ConvertToBitmap())
-        self.SetIcon(icon)
+        try:
+            icon=wx.EmptyIcon()
+            icon_source=wx.Image('ignore/icon.jpg',wx.BITMAP_TYPE_JPEG)
+            icon.CopyFromBitmap(icon_source.ConvertToBitmap())
+            self.SetIcon(icon)
+        except:
+            pass
         #self.taskbar = wx.adv.TaskBarIcon()
         #self.taskbar.SetIcon(icon, '')
         self.Show()
